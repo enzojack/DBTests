@@ -14,9 +14,34 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QTableView" name="table"/>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTableView" name="tablePersons"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableView" name="tableWorkingHours"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QTableView" name="tableWorkingHoursJoinPersons"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -26,7 +51,7 @@
      <x>0</x>
      <y>0</y>
      <width>656</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">
@@ -34,6 +59,7 @@
      <string>Edit</string>
     </property>
     <addaction name="actionAdd_Item"/>
+    <addaction name="actionAdd_Hours"/>
    </widget>
    <widget class="QMenu" name="menuDatabase">
     <property name="title">
@@ -41,8 +67,17 @@
     </property>
     <addaction name="actionRefresh"/>
    </widget>
+   <widget class="QMenu" name="menuTables">
+    <property name="title">
+     <string>Tables</string>
+    </property>
+    <addaction name="actionTables"/>
+    <addaction name="actionWorking_Hours"/>
+    <addaction name="actionJoin_Table"/>
+   </widget>
    <addaction name="menuEdit"/>
    <addaction name="menuDatabase"/>
+   <addaction name="menuTables"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -55,12 +90,44 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAdd_Item">
    <property name="text">
-    <string>Add Item</string>
+    <string>Add Person</string>
    </property>
   </action>
   <action name="actionRefresh">
    <property name="text">
     <string>Refresh</string>
+   </property>
+  </action>
+  <action name="actionTables">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Persons</string>
+   </property>
+  </action>
+  <action name="actionWorking_Hours">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Working Hours</string>
+   </property>
+  </action>
+  <action name="actionAdd_Hours">
+   <property name="text">
+    <string>Add Hours</string>
+   </property>
+  </action>
+  <action name="actionJoin_Table">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Join Table</string>
    </property>
   </action>
  </widget>
