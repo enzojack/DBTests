@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_tableActions, &QActionGroup::triggered, this, &MainWindow::onTableActionsTriggered);
     connect(ui->actionAdd_Item, &QAction::triggered, this, &MainWindow::onAddItem);
     connect(ui->actionAdd_Hours, &QAction::triggered, this, &MainWindow::onAddHours);
+    connect(ui->actionDelete_Persons, &QAction::triggered,this, &MainWindow::onDeletePersons);
     m_addItemDialog = new AddItemDialog(this);
     QString hostName;
     QString databaseName;
@@ -212,4 +213,30 @@ void MainWindow::onAddHours()
     QString hours;
     m_addItemDialog->hours(hours);
     insertQuery(id, hours);
+}
+
+void MainWindow::onDeletePersons()
+{
+    QItemSelectionModel *selModel = ui->tablePersons->selectionModel();
+    QModelIndexList selIndexes = selModel->selectedIndexes();
+    if(selIndexes.count() == 0)
+    {
+        return;
+    }
+    QModelIndex index = selIndexes[0];
+    int row = index.row();
+    QString id = m_personsModel->itemData(index.sibling(row, 0))[Qt::EditRole].toString();
+
+
+
+
+    QSqlQuery query;
+    query.prepare("delete from persons where persons.id = :id");
+    query.bindValue(":id", id);
+    if(!query.exec())
+    {
+        qDebug() << query.lastError();
+    }
+    selectQuery();
+
 }

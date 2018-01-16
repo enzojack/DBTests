@@ -51,7 +51,7 @@
      <x>0</x>
      <y>0</y>
      <width>656</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">
@@ -60,6 +60,7 @@
     </property>
     <addaction name="actionAdd_Item"/>
     <addaction name="actionAdd_Hours"/>
+    <addaction name="actionDelete_Persons"/>
    </widget>
    <widget class="QMenu" name="menuDatabase">
     <property name="title">
@@ -128,6 +129,11 @@
    </property>
    <property name="text">
     <string>Join Table</string>
+   </property>
+  </action>
+  <action name="actionDelete_Persons">
+   <property name="text">
+    <string>Delete Persons</string>
    </property>
   </action>
  </widget>

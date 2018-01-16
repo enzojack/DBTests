@@ -27,6 +27,7 @@ private slots:
     void onRefreshDB();
     void onTableActionsTriggered(QAction *action);
     void onAddHours();
+    void onDeletePersons();
 
 private:
     void setupModel();

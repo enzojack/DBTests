@@ -16,6 +16,7 @@ public:
     {
         ADD_PERSON,
         ADD_HOURS
+
     };
 
 public:
